@@ -29,15 +29,17 @@ export type Anime = {
     embed_url: string;
   };
   title: string;
-  title_english: string;
+  title_english?: string;
   type: string;
+  episodes?: number;
+  status: string;
   season: string;
   year: number;
   broadcast: {
-    day: string;
-    time: string;
-    timezone: string;
-    string: string;
+    day?: string;
+    time?: string;
+    timezone?: string;
+    string?: string;
   };
   studios: [
     {
@@ -49,6 +51,7 @@ export type Anime = {
   ];
   score?: number;
   scored_by?: number;
+  synopsis?: string;
 };
 
 export type AnimeResponse = {
