@@ -9,6 +9,12 @@ export type Pagination = {
   };
 };
 
+export enum AnimeStatus {
+  NOT_YET_AIRED = 'Not yet aired',
+  CURRENTLY_AIRING = 'Currently Airing',
+  FINISHED_AIRING = 'Finished Airing',
+}
+
 export type Anime = {
   mal_id: number;
   images: {
@@ -32,7 +38,10 @@ export type Anime = {
   title_english?: string;
   type: string;
   episodes?: number;
-  status: string;
+  status: AnimeStatus;
+  aired: {
+    string?: string;
+  };
   season: string;
   year: number;
   broadcast: {
