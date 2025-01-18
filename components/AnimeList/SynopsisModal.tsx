@@ -29,7 +29,7 @@ export function SynopsisModal({ title, synopsis = 'N/A' }: SynopsisModalProps) {
           <DialogDescription>Synopsis</DialogDescription>
         </DialogHeader>
         <div className="mt-4">
-          <p className="text-sm text-gray-700">{synopsis}</p>
+          <p className="text-sm text-gray-400">{synopsis}</p>
         </div>
       </DialogContent>
     </Dialog>

@@ -8,7 +8,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Star, Calendar, Building2, Play } from 'lucide-react';
-import { SynopsisModal } from './SynopsismModal';
+import { SynopsisModal } from './SynopsisModal';
 import { Anime } from '@/lib/types';
 import Image from 'next/image';
 import WatchingStatusControl from './WatchingStatusControl';
@@ -45,7 +45,7 @@ export default function AnimeCard({
       <div className="flex flex-col justify-between h-full">
         <CardHeader className="p-4 pt-4">
           <div className="flex justify-between items-center">
-            <CardTitle className="text-lg font-bold line-clamp-2 max-h-14">
+            <CardTitle className={` text-lg line-clamp-2 max-h-14`}>
               {title_english || title}
             </CardTitle>
             <Badge variant="secondary" className="ml-2 text-xs">
@@ -75,14 +75,14 @@ export default function AnimeCard({
             </div>
           </div>
         </CardContent>
-        <CardFooter className="flex-col px-4 pb-5 gap-2 items-start">
+        <CardFooter className="flex-col px-4 pb-5 gap-2 ">
           <WatchingStatusControl
             title={title}
             totalEpisodes={totalEpisodes}
             status={status}
           />
           <div className="flex gap-2">
-            <Button variant="outline" size="sm" className="w-1/2" asChild>
+            <Button size="sm" className="w-1/2" asChild>
               <a href={url} target="_blank" rel="noopener noreferrer">
                 <Play className="mr-2 h-3 w-3" /> Trailer
               </a>

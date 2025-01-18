@@ -3,6 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import { Plus, Minus, Eye, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimeStatus } from '@/lib/types';
+import { RainbowButton } from '../ui/rainbow-button';
 
 type WatchingStatusControlProps = {
   title: string;
@@ -99,9 +100,9 @@ const WatchingStatusControl: FC<WatchingStatusControlProps> = ({
           </Button>
         </div>
       ) : (
-        <Button variant="outline" size="sm" onClick={startWatching}>
+        <RainbowButton onClick={startWatching} className="w-full">
           <Eye className="mr-2 h-4 w-4" /> Start Watching
-        </Button>
+        </RainbowButton>
       )}
     </div>
   );
