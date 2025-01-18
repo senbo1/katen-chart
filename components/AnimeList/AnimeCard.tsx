@@ -12,6 +12,7 @@ import { SynopsisModal } from './SynopsisModal';
 import { Anime } from '@/lib/types';
 import Image from 'next/image';
 import WatchingStatusControl from './WatchingStatusControl';
+import { BorderTrail } from '../ui/border-trail';
 
 export default function AnimeCard({
   images: {
@@ -34,7 +35,14 @@ export default function AnimeCard({
   const joinedStudios = studios.map((studio) => studio.name).join(', ');
 
   return (
-    <Card className="flex flex-row w-[500px] h-72">
+    <Card className="relative flex flex-row w-[500px] h-72">
+      <BorderTrail
+        style={{
+          boxShadow:
+            '0px 0px 60px 30px rgb(255 255 255 / 50%), 0 0 100px 60px rgb(0 0 0 / 50%), 0 0 140px 90px rgb(0 0 0 / 50%)',
+        }}
+        size={100}
+      />
       <Image
         src={image}
         alt={title}
