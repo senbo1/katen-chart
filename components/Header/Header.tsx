@@ -1,6 +1,5 @@
 import { Tv } from 'lucide-react';
 import { TextLoop } from '../ui/text-loop';
-import { playFair } from '@/lib/fonts';
 import { Button } from '../ui/button';
 import ThemeToggle from '../ui/ThemeToggle';
 import { GitHubStarButton } from './GithubButton';
@@ -13,7 +12,7 @@ const Header = () => {
           <Tv className="w-5 h-5" />
           <h1 className="text-xl font-bold">
             <TextLoop className="text-green-600 mr-2">
-              <span className={`${playFair.className} italic`}>katen</span>
+              <span>katen</span>
               <span>加点</span>
             </TextLoop>
             <span>chart</span>
