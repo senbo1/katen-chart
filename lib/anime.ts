@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Anime, AnimeResponse } from './types';
+import { Anime, AnimeResponse } from '../types/anime';
 import { delay } from './utils';
 
 const fetchWithRetry = async (

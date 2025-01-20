@@ -7,12 +7,12 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Star, Calendar, Building2, Play } from 'lucide-react';
+import { Star, Building2, Play } from 'lucide-react';
 import { SynopsisModal } from './SynopsisModal';
-import { Anime } from '@/lib/types';
+import { Anime } from '@/types/anime';
 import Image from 'next/image';
 import WatchingStatusControl from './WatchingStatusControl';
-import { BorderTrail } from '../ui/border-trail';
+import Countdown from './Countdown';
 
 export default function AnimeCard({
   images: {
@@ -22,7 +22,7 @@ export default function AnimeCard({
   title,
   title_english,
   type,
-  broadcast: { day: broadcastDay },
+  broadcast: { day: broadcastDay, time: broadcastTime },
   studios,
   score,
   scored_by: scoredBy,
@@ -35,33 +35,28 @@ export default function AnimeCard({
   const joinedStudios = studios.map((studio) => studio.name).join(', ');
 
   return (
-    <Card className="relative flex flex-row w-[500px] h-72">
-      <BorderTrail
-        style={{
-          boxShadow:
-            '0px 0px 60px 30px rgb(255 255 255 / 50%), 0 0 100px 60px rgb(0 0 0 / 50%), 0 0 140px 90px rgb(0 0 0 / 50%)',
-        }}
-        size={100}
-      />
+    <Card className="flex flex-col items-center sm:items-stretch sm:flex-row w-[300px] sm:w-[510px] sm:h-72 transform hover:border-green-500 transition-all ease-in-out">
       <Image
         src={image}
         alt={title}
         width={200}
         height={280}
-        className="rounded-l-xl"
+        className="mt-4 w-64  sm:mt-0 rounded-xl sm:rounded-r-none sm:rounded-l-xl"
       />
-      <div className="flex flex-col justify-between h-full">
+      <div className="flex flex-col justify-between h-full w-full">
         <CardHeader className="p-4 pt-4">
-          <div className="flex justify-between items-center">
-            <CardTitle className={` text-lg line-clamp-2 max-h-14`}>
+          <div className="flex justify-between items-center w-full">
+            <CardTitle
+              className={`mx-auto text-sm text-center sm:text-lg line-clamp-2 max-h-14`}
+            >
               {title_english || title}
             </CardTitle>
-            <Badge variant="secondary" className="ml-2 text-xs">
+            <Badge variant="secondary" className="hidden sm:block ml-2 text-xs">
               {type}
             </Badge>
           </div>
         </CardHeader>
-        <CardContent className="p-4 pt-0 flex flex-col gap-2">
+        <CardContent className="hidden p-4 pt-0 sm:flex flex-col gap-2">
           <div className="flex flex-col gap-2 text-sm">
             <div className="flex items-center gap-1">
               <Star className="mr-1 h-4 w-4 text-yellow-400" />
@@ -71,25 +66,26 @@ export default function AnimeCard({
                   : `${score} (${scoredBy?.toLocaleString() || 0})`}
               </span>
             </div>
-            <div className="flex items-center gap-1">
-              <Calendar className="mr-1 h-4 w-4" />
-              <span>
-                {type !== 'TV' ? airedString || 'N/A' : broadcastDay || 'N/A'}
-              </span>
-            </div>
+            <Countdown
+              broadcastDay={broadcastDay}
+              broadcastTime={broadcastTime}
+              airedString={airedString}
+              type={type}
+              status={status}
+            />
             <div className="flex items-center gap-1">
               <Building2 className="mr-1 h-4 w-4" />
               <span>{joinedStudios || 'N/A'}</span>
             </div>
           </div>
         </CardContent>
-        <CardFooter className="flex-col px-4 pb-5 gap-2 ">
+        <CardFooter className="flex-col px-4 pb-5 gap-2 w-full">
           <WatchingStatusControl
             title={title}
             totalEpisodes={totalEpisodes}
             status={status}
           />
-          <div className="flex gap-2">
+          <div className="flex flex-row gap-2">
             <Button size="sm" className="w-1/2" asChild>
               <a href={url} target="_blank" rel="noopener noreferrer">
                 <Play className="mr-2 h-3 w-3" /> Trailer
