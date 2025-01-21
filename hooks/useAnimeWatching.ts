@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 const STORAGE_PREFIX = 'anime_';
 
-export const useAnimeWatching = (title: string, totalEpisodes?: number) => {
+export const useAnimeWatching = (title: string, totalEpisodes: number) => {
   const [watchedEpisodes, setWatchedEpisodes] = useState<number>(-1);
 
   useEffect(() => {
@@ -48,9 +48,12 @@ export const useAnimeWatching = (title: string, totalEpisodes?: number) => {
 
   const isWatching = watchedEpisodes >= 0;
 
+  const progress = (watchedEpisodes / totalEpisodes) * 100;
+
   return {
     watchedEpisodes,
     isWatching,
+    progress,
     startWatching,
     increaseWatched,
     decreaseWatched,

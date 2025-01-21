@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Star, Building2, Play } from 'lucide-react';
 import { SynopsisModal } from './SynopsisModal';
-import { Anime } from '@/types/anime';
+import { Anime, AnimeStatus } from '@/types/anime';
 import Image from 'next/image';
 import WatchingStatusControl from './WatchingStatusControl';
 import Countdown from './Countdown';
@@ -80,11 +80,12 @@ export default function AnimeCard({
           </div>
         </CardContent>
         <CardFooter className="flex-col px-4 pb-5 gap-2 w-full">
-          <WatchingStatusControl
-            title={title}
-            totalEpisodes={totalEpisodes}
-            status={status}
-          />
+          {status === AnimeStatus.NOT_YET_AIRED || !totalEpisodes ? null : (
+            <WatchingStatusControl
+              title={title}
+              totalEpisodes={totalEpisodes}
+            />
+          )}
           <div className="flex flex-row gap-2">
             <Button size="sm" className="w-1/2" asChild>
               <a href={url} target="_blank" rel="noopener noreferrer">

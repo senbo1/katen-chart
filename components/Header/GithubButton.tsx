@@ -18,7 +18,7 @@ export function GitHubStarButton({
   return (
     <>
       <Button
-        variant="outline"
+        variant="ghost"
         className={`hidden sm:flex items-center gap-2 group ${className}`}
         asChild
         onMouseEnter={() => setIsHovered(true)}

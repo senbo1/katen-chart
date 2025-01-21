@@ -24,7 +24,7 @@ const ThemeToggle = () => {
 
   return (
     <Button
-      variant="outline"
+      variant="ghost"
       size="icon"
       onClick={toggleDarkMode}
       aria-label="Toggle theme"
