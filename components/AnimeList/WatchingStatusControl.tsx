@@ -2,32 +2,26 @@
 import { FC } from 'react';
 import { Plus, Minus, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { AnimeStatus } from '@/types/anime';
 import { RainbowButton } from '../ui/rainbow-button';
 import { useAnimeWatching } from '@/hooks/useAnimeWatching';
 
 type WatchingStatusControlProps = {
   title: string;
-  totalEpisodes?: number;
-  status: AnimeStatus;
+  totalEpisodes: number;
 };
 
 const WatchingStatusControl: FC<WatchingStatusControlProps> = ({
   title,
   totalEpisodes,
-  status,
 }) => {
   const {
     watchedEpisodes,
     isWatching,
+    progress,
     startWatching,
     increaseWatched,
     decreaseWatched,
   } = useAnimeWatching(title, totalEpisodes);
-
-  if (status === AnimeStatus.NOT_YET_AIRED || !totalEpisodes) {
-    return null;
-  }
 
   return (
     <div className="mt-2 w-full">
@@ -45,8 +39,16 @@ const WatchingStatusControl: FC<WatchingStatusControlProps> = ({
               <span className="sr-only">Decrease</span>
             </Button>
             <div className="min-w-[100px] text-center">
-              <div className="font-medium tabular-nums font-mono">
-                {watchedEpisodes} / {totalEpisodes}
+              <div className="font-medium tabular-nums text-sm">
+                {watchedEpisodes === totalEpisodes
+                  ? 'Completed'
+                  : `${watchedEpisodes} / ${totalEpisodes}`}
+              </div>
+              <div className="relative h-1 overflow-hidden bg-muted">
+                <div
+                  className="absolute left-0 top-0 h-full rounded-full bg-primary transition-all duration-500 ease-out"
+                  style={{ width: `${progress}%` }}
+                />
               </div>
             </div>
             <Button
