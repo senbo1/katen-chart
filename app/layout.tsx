@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import ThemeProvider from '@/components/Providers/ThemeProvider';
 import { poppins } from '@/lib/fonts';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: 'Katen chart',
@@ -23,6 +24,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
