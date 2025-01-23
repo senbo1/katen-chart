@@ -1,7 +1,8 @@
+// import { buttonVariants } from '../ui/button';
 import { TextLoop } from '../ui/text-loop';
-import { Button } from '../ui/button';
 import ThemeToggle from '../ui/ThemeToggle';
 import { GitHubStarButton } from './GithubButton';
+// import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -19,7 +20,12 @@ const Header = () => {
         <div className="flex gap-2">
           <GitHubStarButton repoUrl="https://github.com/senbo1/katen-chart" />
           <ThemeToggle />
-          <Button variant="default">Sign Up</Button>
+          {/* <Link
+            href="/sign-in"
+            className={buttonVariants({ variant: 'default' })}
+          >
+            Sign In
+          </Link> */}
         </div>
       </nav>
     </header>

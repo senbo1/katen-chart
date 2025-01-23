@@ -51,7 +51,7 @@ export const getAnimeList = async (): Promise<Anime[]> => {
       hasNextPage = pagination.has_next_page;
       page++;
 
-      if (page > 1) break; // Fetch only the first page for demo purposes
+      // if (page > 1) break; // Fetch only the first page for demo purposes
     } catch (error) {
       console.error('Error fetching anime:', error);
       throw error;

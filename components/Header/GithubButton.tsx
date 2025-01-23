@@ -16,39 +16,21 @@ export function GitHubStarButton({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <>
-      <Button
-        variant="ghost"
-        className={`hidden sm:flex items-center gap-2 group ${className}`}
-        asChild
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <a href={repoUrl} target="_blank" rel="noopener noreferrer">
-          <Star
-            className={`w-4 h-4 transition-colors duration-200 ${
-              isHovered ? 'fill-current' : 'fill-transparent'
-            }`}
-          />
-          Star on GitHub
-        </a>
-      </Button>
-      {/* <Button
-        variant="outline"
-        size="icon"
-        className={`sm:hidden flex items-center group ${className}`}
-        asChild
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <a href={repoUrl} target="_blank" rel="noopener noreferrer">
-          <Star
-            className={`w-4 h-4 transition-colors duration-200 ${
-              isHovered ? 'fill-current' : 'fill-transparent'
-            }`}
-          />
-        </a>
-      </Button> */}
-    </>
+    <Button
+      variant="ghost"
+      className={`hidden sm:flex items-center gap-2 group ${className}`}
+      asChild
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <a href={repoUrl} target="_blank" rel="noopener noreferrer">
+        <Star
+          className={`w-4 h-4 transition-colors duration-200 ${
+            isHovered ? 'fill-current' : 'fill-transparent'
+          }`}
+        />
+        Star on GitHub
+      </a>
+    </Button>
   );
 }

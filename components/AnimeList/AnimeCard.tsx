@@ -41,7 +41,7 @@ export default function AnimeCard({
         alt={title}
         width={200}
         height={280}
-        className="mt-4 w-64  sm:mt-0 rounded-xl sm:rounded-r-none sm:rounded-l-xl"
+        className="mt-4 w-64 sm:mt-0 sm:w-[200px] sm:h-auto rounded-xl sm:rounded-r-none sm:rounded-l-xl"
       />
       <div className="flex flex-col justify-between h-full w-full">
         <CardHeader className="p-4 pt-4">
