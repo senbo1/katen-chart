@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Katen-Chart
 
-## Getting Started
+A modern web application for tracking seasonal anime, built with Next.js, Shadcn/ui, and powered by the Jikan API. Features include detailed anime information, countdowns, trailers, and progress tracking.
 
-First, run the development server:
+![Katen-Chart Preview](./preview.png) <!-- Add a screenshot if available -->
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Seasonal Anime Overview**: Browse anime currently airing in the current season.
+- **Detailed Information**: View ratings, studio names, synopsis, and more.
+- **Next Episode Countdown**: Real-time countdown to the next episode release.
+- **Progress Tracking**: Update and track the number of watched episodes (stored locally).
+- **Responsive Design**: Optimized for mobile and desktop.
+- **Smooth Animations**: Powered by Framer Motion for an enhanced user experience.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js**: React framework for server-side rendering and static site generation.
+- **Shadcn/ui**: Modern UI components built with Radix UI and Tailwind CSS.
+- **Jikan API**: Free MyAnimeList API for anime data.
+- **Framer Motion**: Animation library for React.
+- **Tailwind CSS**: Utility-first CSS framework.
+- **date-fns**: Date utility for handling countdown timers.
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/senbo1/katen-chart.git
+   cd katen-chart
+   ```
+2. **Install dependencies**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Running the App
 
-## Deploy on Vercel
+1. **Development**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Production Build**:
+
+   ```bash
+   npm run build
+   npm run start
+   ```
+
+   Visit http://localhost:3000 in your browser.
+
+## Contributing
+
+Contributions are welcome! Follow these steps:
+
+1. Fork the repository.
+2. Create a feature branch: git checkout -b feat/your-feature.
+3. Commit your changes: git commit -m "Add your feature".
+4. Push to the branch: git push origin feat/your-feature.
+5. Open a Pull Request.
