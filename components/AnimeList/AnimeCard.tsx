@@ -35,28 +35,28 @@ export default function AnimeCard({
   const joinedStudios = studios.map((studio) => studio.name).join(', ');
 
   return (
-    <Card className="flex flex-col items-center sm:items-stretch sm:flex-row w-[300px] sm:w-[510px] sm:h-72 transform hover:border-green-500 transition-all ease-in-out">
+    <Card className="flex flex-col items-center xs:items-stretch xs:flex-row w-[300px] xs:w-[500px] xs:h-72 transform hover:border-green-500 transition-all ease-in-out">
       <Image
         src={image}
         alt={title}
         width={200}
-        height={280}
-        className="mt-4 w-64 sm:mt-0 sm:w-[200px] sm:h-auto rounded-xl sm:rounded-r-none sm:rounded-l-xl"
+        height={260}
+        className="mt-4 w-64 xs:mt-0 xs:w-[200px] xs:h-auto rounded-xl xs:rounded-r-none xs:rounded-l-xl"
       />
       <div className="flex flex-col justify-between h-full w-full">
         <CardHeader className="p-4 pt-4">
           <div className="flex justify-between items-center w-full">
             <CardTitle
-              className={`mx-auto text-sm text-center sm:text-lg line-clamp-2 max-h-14`}
+              className={`mx-auto text-sm text-center xs:text-lg line-clamp-2 max-h-14`}
             >
               {title_english || title}
             </CardTitle>
-            <Badge variant="secondary" className="hidden sm:block ml-2 text-xs">
+            <Badge variant="secondary" className="hidden xs:block ml-2 text-xs">
               {type}
             </Badge>
           </div>
         </CardHeader>
-        <CardContent className="hidden p-4 pt-0 sm:flex flex-col gap-2">
+        <CardContent className="hidden p-4 pt-0 xs:flex flex-col gap-2">
           <div className="flex flex-col gap-2 text-sm">
             <div className="flex items-center gap-1">
               <Star className="mr-1 h-4 w-4 text-yellow-400" />
