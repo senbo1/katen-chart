@@ -14,7 +14,7 @@ export function HeroLine() {
     setIsClient(true);
   }, []);
   return (
-    <h2 className="text-center font-semibold leading-none text-2xl max-w-sm sm:text-4xl sm:max-w-xl lg:text-7xl w-full lg:max-w-5xl p-4 pt-0">
+    <h2 className="text-center font-semibold leading-none text-2xl max-w-sm xs:text-4xl xs:max-w-xl lg:text-7xl w-full lg:max-w-5xl p-4 pt-0 my-4">
       {isClient ? (
         <>
           Your <AuroraText>Favourite</AuroraText> Seasonal Anime{' '}
