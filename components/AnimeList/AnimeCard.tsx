@@ -30,7 +30,7 @@ export default function AnimeCard({
   status,
   aired: { string: airedString },
   synopsis,
-}: Anime) {
+}: Readonly<Anime>) {
   const image = large_image_url;
   const joinedStudios = studios.map((studio) => studio.name).join(', ');
 
