@@ -26,16 +26,17 @@ const fetchWithRetry = async (
   }
 };
 
-export const getAnimeList = async (): Promise<Anime[]> => {
-  const animeList: Anime[] = [];
+export const getAnimeList = async (): Promise<Anime[][]> => {
+  const allAnime: Anime[] = [];
   let page = 1;
   let hasNextPage = true;
   const seenIds = new Set<number>();
   const RATE_LIMIT_DELAY = 350;
+  const ITEMS_PER_PAGE = 24;
 
   while (hasNextPage) {
     try {
-      await delay(RATE_LIMIT_DELAY); // Wait before each request to respect rate limits
+      await delay(RATE_LIMIT_DELAY);
 
       const response = await fetchWithRetry(page);
       const { data: anime, pagination } = response;
@@ -43,7 +44,7 @@ export const getAnimeList = async (): Promise<Anime[]> => {
       // Remove duplicates
       anime.forEach((show) => {
         if (!seenIds.has(show.mal_id)) {
-          animeList.push(show);
+          allAnime.push(show);
           seenIds.add(show.mal_id);
         }
       });
@@ -58,8 +59,15 @@ export const getAnimeList = async (): Promise<Anime[]> => {
     }
   }
 
-  if (!hasNextPage && animeList.length > 0)
-    console.log('Finished fetching anime list');
+  // Chunk the anime list into groups of ITEMS_PER_PAGE
+  const chunkedAnimeList: Anime[][] = [];
+  for (let i = 0; i < allAnime.length; i += ITEMS_PER_PAGE) {
+    chunkedAnimeList.push(allAnime.slice(i, i + ITEMS_PER_PAGE));
+  }
 
-  return animeList;
+  if (!hasNextPage && chunkedAnimeList.length > 0) {
+    console.log('Finished fetching anime list');
+  }
+
+  return chunkedAnimeList;
 };
