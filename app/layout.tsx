@@ -3,6 +3,7 @@ import './globals.css';
 import ThemeProvider from '@/components/Providers/ThemeProvider';
 import { poppins } from '@/lib/fonts';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: 'Katen chart',
@@ -28,6 +29,7 @@ export default function RootLayout({
         >
           {children}
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>

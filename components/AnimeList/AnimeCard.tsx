@@ -49,7 +49,7 @@ export default function AnimeCard({
             <CardTitle
               className={`mx-auto text-sm text-center xs:text-lg line-clamp-2 max-h-14`}
             >
-              {title_english || title}
+              {title_english ?? title}
             </CardTitle>
             <Badge variant="secondary" className="hidden xs:block ml-2 text-xs">
               {type}
@@ -63,7 +63,7 @@ export default function AnimeCard({
               <span>
                 {!score
                   ? 'N/A'
-                  : `${score} (${scoredBy?.toLocaleString() || 0})`}
+                  : `${score} (${scoredBy?.toLocaleString() ?? 0})`}
               </span>
             </div>
             <Countdown
