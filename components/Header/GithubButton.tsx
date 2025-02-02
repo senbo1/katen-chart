@@ -29,7 +29,7 @@ export function GitHubStarButton({
             isHovered ? 'fill-current' : 'fill-transparent'
           }`}
         />
-        Star on GitHub
+        GitHub
       </a>
     </Button>
   );
