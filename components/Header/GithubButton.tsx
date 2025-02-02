@@ -5,8 +5,8 @@ import { Star } from 'lucide-react';
 import { useState } from 'react';
 
 interface GitHubStarButtonProps {
-  repoUrl: string;
-  className?: string;
+  readonly repoUrl: string;
+  readonly className?: string;
 }
 
 export function GitHubStarButton({
