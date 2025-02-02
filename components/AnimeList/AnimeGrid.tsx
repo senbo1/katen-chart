@@ -40,7 +40,10 @@ const AnimeGrid = ({ initialAnimePages }: { initialAnimePages: Anime[][] }) => {
           </PaginationItem>
 
           {[...Array(totalPages)].map((_, index) => (
-            <PaginationItem key={`page-${index + 1}`}>
+            <PaginationItem
+              key={`page-${index + 1}`}
+              className="hidden md:block"
+            >
               <PaginationLink
                 onClick={() => setCurrentPage(index)}
                 isActive={currentPage === index}
